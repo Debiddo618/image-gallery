@@ -5,8 +5,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const Search = ({word, setWord, handleSubmit}) => {
-    console.log("Hello");
-
     return (
         <>
             <Container className='mt-4' fluid="md">
