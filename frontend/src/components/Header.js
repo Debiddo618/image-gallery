@@ -5,12 +5,12 @@ const navbarStyle={
     backgroundColor: '#eeee'
 }
 
-const Header = (props) => {
+const Header = ({title}) => {
     return (
         <>
             <Navbar style={navbarStyle} data-bs-theme="light">
                 <Container>
-                    <Logo style={{maxWidth:"10rem", maxHeight:"2rem"}}/>
+                    <Logo alt={title} style={{maxWidth:"10rem", maxHeight:"2rem"}}/>
                 </Container>
             </Navbar>
         </>
