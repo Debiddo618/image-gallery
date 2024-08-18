@@ -1,4 +1,4 @@
-import {Navbar, Nav, Container} from 'react-bootstrap';
+import {Navbar, Container} from 'react-bootstrap';
 import {ReactComponent as Logo} from '../images/logo.svg';
 
 const navbarStyle={

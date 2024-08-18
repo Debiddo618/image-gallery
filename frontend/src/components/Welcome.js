@@ -1,4 +1,4 @@
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const Welcome = () => {
   return (
