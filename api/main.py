@@ -18,6 +18,7 @@ app = Flask(__name__)
 CORS(app)
 app.config["DEBUG"]=DEBUG
 
+
 @app.route("/new-image")
 def new_image():
     # Get the word from the URL
