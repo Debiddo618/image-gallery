@@ -22,8 +22,8 @@ services:  # Defines the services to be run by Docker Compose.
     image: mongo  # Use the official MongoDB image from Docker Hub.
     restart: always  # Automatically restart the container if it stops.
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root  # Sets the root username for MongoDB.
-      MONGO_INITDB_ROOT_PASSWORD: very-strong-db-password  # Sets the root password for MongoDB.
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}  # Sets the root username for MongoDB.
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}  # Sets the root password for MongoDB.
     volumes:
       - mongodb_data:/data/db  # Persists MongoDB data by mounting the volume to the /data/db directory in the container.
 
@@ -34,8 +34,8 @@ services:  # Defines the services to be run by Docker Compose.
       - 8081:8081  # Maps port 8081 of the host to port 8081 of the container, exposing Mongo Express.
     environment:
       ME_CONFIG_MONGODB_SERVER: mongo  # Sets MongoDB server host to connect to the 'mongo' service.
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root  # Sets the admin username to connect to MongoDB.
-      ME_CONFIG_MONGODB_ADMINPASSWORD: very-strong-db-password  # Sets the admin password to connect to MongoDB.
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_INITDB_ROOT_USERNAME}  # Sets the admin username to connect to MongoDB.
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}  # Sets the admin password to connect to MongoDB.
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/  # Provides the connection URL to MongoDB (note: the password here is different, typically for example purposes).
       ME_CONFIG_BASICAUTH: false  # Disables basic authentication for Mongo Express (not recommended for production).
     depends_on:
